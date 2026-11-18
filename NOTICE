@@ -1,0 +1,8 @@
+Third-party software bundled with this plugin
+
+JLayer 1.0.1 (javazoom.jl), a pure-Java MP3 decoder
+  Copyright (C) 1999-2005 JavaZOOM
+  Licensed under the GNU Lesser General Public License v2 or later.
+  https://github.com/umjammer/jlayer  (maintained fork)  /  http://www.javazoom.net
+  The library is bundled unmodified as a separate jar inside the plugin, so it can be replaced
+  with another build of the same version.

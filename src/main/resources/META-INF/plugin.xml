@@ -1,0 +1,46 @@
+<idea-plugin>
+    <id>com.tipandtale.bloodsweatandcode</id>
+    <name>Blood, Sweat and Code</name>
+    <vendor url="https://github.com/tipandtale">tipandtale</vendor>
+
+    <description><![CDATA[
+    <p>A cheerful pastel-purple coding companion for ARMY. Fan-made, not affiliated with HYBE or BTS.</p>
+    <p>It keeps track of your day:</p>
+    <ul>
+        <li><b>Sweat</b>: keystrokes typed today</li>
+        <li><b>Blood</b>: bugs squashed (the error count in a file you're editing goes down)</li>
+        <li><b>Code</b>: lines you wrote today, against a daily goal</li>
+    </ul>
+    <p>While you code you get pixel hearts when typing, a "7" burst when deleting, sparkles on new lines,
+    fan-edit sound clips, confetti when you hit your goal, and easter eggs when you type words like
+    <code>borahae</code>, <code>army</code> or <code>dynamite</code>.</p>
+    <p>Everything lives in a small tool window on the right and a status bar counter. Calm mode turns off all
+    effects and sound while your counts keep going.</p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    <ul><li>First release.</li></ul>
+    ]]></change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Blood, Sweat and Code"
+                    anchor="right"
+                    icon="/icons/toolWindow.svg"
+                    factoryClass="com.tipandtale.bsc.BscToolWindowFactory"/>
+        <statusBarWidgetFactory id="BloodSweatAndCodeStatus"
+                                implementation="com.tipandtale.bsc.BscStatusBarFactory"/>
+        <editorFactoryListener implementation="com.tipandtale.bsc.BscEditorFactoryListener"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="com.tipandtale.bsc.BscActionListener"
+                  topic="com.intellij.openapi.actionSystem.ex.AnActionListener"/>
+    </applicationListeners>
+
+    <projectListeners>
+        <listener class="com.tipandtale.bsc.BscDaemonListener"
+                  topic="com.intellij.codeInsight.daemon.DaemonCodeAnalyzer$DaemonListener"/>
+    </projectListeners>
+</idea-plugin>
